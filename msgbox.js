@@ -28,7 +28,17 @@ const showAlertStandard = (title, message, confirm, cancel) => {
   })
 }
 
+/**
+ * 显示Toast
+ */
+const showToast = (msg) => {
+  wx.showToast({
+    title: msg,
+  })
+}
+
 module.exports = {
   showAlertSimple: showAlertSimple,
-  showAlertStandard: showAlertStandard
+  showAlertStandard: showAlertStandard,
+  showToast: showToast
 }
