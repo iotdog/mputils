@@ -36,11 +36,19 @@ const datetimeString2UnixTimeStamp = (dateString) => {
 
   let date = new Date(dateParts[0], parseInt(dateParts[1], 10) - 1, dateParts[2], timeParts[0], timeParts[1], timeParts[2]);
 
-  return date.getTime() / 1000
+  return ((date.getTime() & 0xffffffff) >>> 0)
+}
+
+/**
+ * 获取当前的时间戳
+ */
+const getCurrTimeStamp = () => {
+  return ((Date.now() &0xffffffff) >>> 0)
 }
 
 module.exports = {
   timeStamp2DateString: timeStamp2DateString,
   getCurrentDateString: getCurrentDateString,
-  datetimeString2UnixTimeStamp: datetimeString2UnixTimeStamp
+  datetimeString2UnixTimeStamp: datetimeString2UnixTimeStamp,
+  getCurrTimeStamp: getCurrTimeStamp
 }
