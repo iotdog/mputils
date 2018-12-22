@@ -36,7 +36,7 @@ const datetimeString2UnixTimeStamp = (dateString) => {
 
   let date = new Date(dateParts[0], parseInt(dateParts[1], 10) - 1, dateParts[2], timeParts[0], timeParts[1], timeParts[2]);
 
-  return ((date.getTime() & 0xffffffff) >>> 0)
+  return parseInt(date.getTime() / 1000)
 }
 
 /**
