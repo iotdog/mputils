@@ -9,6 +9,19 @@ const showAlertSimple = (message) => {
 }
 
 /**
+ * 显示带确认按钮的提示框
+ */
+const showAlertWithConfirm = (message, confirm) => {
+  wx.showModal({
+    content: message,
+    showCancel: false,
+    success: (res) => {
+      confirm()
+    }
+  })
+}
+
+/**
  * 显示标准提示框，包括确认和取消按钮、消息标题、消息正文
  */
 const showAlertStandard = (title, message, confirm, cancel) => {
@@ -39,6 +52,7 @@ const showToast = (msg) => {
 
 module.exports = {
   showAlertSimple: showAlertSimple,
+  showAlertWithConfirm: showAlertWithConfirm,
   showAlertStandard: showAlertStandard,
   showToast: showToast
 }
