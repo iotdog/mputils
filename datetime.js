@@ -43,7 +43,7 @@ const datetimeString2UnixTimeStamp = (dateString) => {
  * 获取当前的时间戳
  */
 const getCurrTimeStamp = () => {
-  return ((Date.now() &0xffffffff) >>> 0)
+  return Math.floor(Date.now() / 1000)
 }
 
 module.exports = {
